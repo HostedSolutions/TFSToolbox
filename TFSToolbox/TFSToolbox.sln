@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hostsol.TFSTB.WebAPI", "Hostsol.TFSTB.WebAPI\Hostsol.TFSTB.WebAPI.csproj", "{697DED0C-D58B-421A-96CE-AE8B9F874A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hostsol.TFSTB.WebAPI.Tests", "Hostsol.TFSTB.WebAPI.Tests\Hostsol.TFSTB.WebAPI.Tests.csproj", "{D52268F9-58EF-4EBD-B58E-4EF1AA8607CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{697DED0C-D58B-421A-96CE-AE8B9F874A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697DED0C-D58B-421A-96CE-AE8B9F874A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697DED0C-D58B-421A-96CE-AE8B9F874A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697DED0C-D58B-421A-96CE-AE8B9F874A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52268F9-58EF-4EBD-B58E-4EF1AA8607CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52268F9-58EF-4EBD-B58E-4EF1AA8607CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52268F9-58EF-4EBD-B58E-4EF1AA8607CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52268F9-58EF-4EBD-B58E-4EF1AA8607CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
