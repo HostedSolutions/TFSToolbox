@@ -7,10 +7,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
-using System.Web.Helpers;
 using Hostsol.TFSTB.WebAPI.Models;
 using Hostsol.TFSTB.WebAPI.Settings.TeamCity;
-
+using Newtonsoft.Json;
 
 namespace Hostsol.TFSTB.WebAPI.TeamCity
 {
@@ -19,7 +18,7 @@ namespace Hostsol.TFSTB.WebAPI.TeamCity
         private string _userName;
         private string _password;
         private string _url;
-        public BuildAccess(TeamCityUserNameSetting userName,TeamCityPassword password,TeamCityURL url)
+        public BuildAccess(TeamCityUserName userName,TeamCityPassword password,TeamCityURL url)
         {
             _userName = userName;
             _password = password;
@@ -38,13 +37,14 @@ namespace Hostsol.TFSTB.WebAPI.TeamCity
             //@{id=1624; buildTypeId=SalesForce_BuildTestAndPackage; number=1.1.8.0; status=SUCCESS; state=finished; 
             //href=/httpAuth/app/rest/builds/id:1624; 
             //webUrl=/viewLog.html?buildId=1624&buildTypeId=SalesForce_BuildTestAndPackage}
-            dynamic LastBuild = Json.Decode(res);
+            
+            dynamic LastBuild = JsonConvert.DeserializeObject<dynamic>(res);
             int buildId = LastBuild.build[0].id;
             cmd = string.Format("/httpAuth/app/rest/buildQueue?locator=buildType:{0}", buildType);
 
             string BuildQueueString = DoRequest(cmd, "");
 
-            dynamic BuildQueue = Json.Decode(BuildQueueString);
+            dynamic BuildQueue = JsonConvert.DeserializeObject<dynamic>(BuildQueueString);
             if (BuildQueue.count > 0)
             {
                 rtn.BuildStatusText = "NotStarted";
@@ -56,7 +56,7 @@ namespace Hostsol.TFSTB.WebAPI.TeamCity
             cmd = string.Format("/httpAuth/app/rest/builds/id:{0}", buildId);
 
             string resBuild = DoRequest(cmd, "");
-            dynamic BuildDetails = Json.Decode(resBuild);
+            dynamic BuildDetails = JsonConvert.DeserializeObject<dynamic>(resBuild);
             //BuildDetails  looks like this
             //@{id=1624; buildTypeId=SalesForce_BuildTestAndPackage; number=1.1.8.0; status=SUCCESS; state=finished; href=/httpAuth/app/rest/builds/id:1624; webUrl=http://teamcity
             //.net/viewLog.html?buildId=1624&buildTypeId=SalesForce_BuildTestAndPackage; statusText=Success; buildType=; queuedDate=20150622T154426+1000; startDate=20150622T154430+1000;

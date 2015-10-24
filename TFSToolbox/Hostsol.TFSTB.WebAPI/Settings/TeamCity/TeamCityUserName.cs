@@ -6,7 +6,7 @@ using ConfigInjector;
 
 namespace Hostsol.TFSTB.WebAPI.Settings.TeamCity
 {
-    public class TeamCityUserNameSetting : ConfigurationSetting<string>
+    public class TeamCityUserName : ConfigurationSetting<string>
     {
         protected override IEnumerable<string> ValidationErrors(string value)
         {
